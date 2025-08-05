@@ -28,15 +28,22 @@ def checkio(array: list[int]) -> int:
 # This functions encounters zeros and duplicates them, the output is a new list with the duplicated 0
 
 def duplicate_zeros(donuts: list[int]) -> Iterable[int]:
+    return [x for n in donuts for x in ([0,0] if n == 0 else [n])]
+duplicate_zeros([0,1,0])
 
+# This functions defines the median of a list either even or odd
 
-donuts = [0,1,2,0,4,0]
-l = len(donuts)
-print(donuts)
-
-for n in donuts:
-    while n < len(donuts):
-        donuts.insert(donuts.index(n), 0)
-
-print(donuts)
+def median(data: list[int]) -> int | float:
+    data.sort()
+    l = len(data)
+    mid = l//2
+    if l % 2 == 0:
+        return (data[mid-1]+data[mid])/2
+    else:
+        return data[mid]
     
+
+
+
+
+

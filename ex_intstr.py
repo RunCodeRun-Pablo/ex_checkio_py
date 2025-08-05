@@ -20,6 +20,7 @@ def longest_substr(s: str) -> int:
 
 def middle (text: str) -> str:
     l = len(text)
+    mid = l//2
     if l % 2 == 0:
         return text[(l//2)-1:(l//2)+1]
     else:
