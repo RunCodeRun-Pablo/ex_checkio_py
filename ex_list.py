@@ -42,8 +42,8 @@ def median(data: list[int]) -> int | float:
     else:
         return data[mid]
     
-
-
-
+def left_join(phrases: tuple[str, ...]) -> str:
+    res = [x for item in phrases for x in ([item.replace("right","left")] if "right" in item else [item])]
+    return ",".join(res)
 
 
