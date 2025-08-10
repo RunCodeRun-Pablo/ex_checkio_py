@@ -1,4 +1,5 @@
 from _collections_abc import Iterable
+from typing import List, Any
 
 
 # This function check within a bool list whether the majority of items are true
@@ -51,19 +52,50 @@ def left_join(phrases: tuple[str, ...]) -> str:
 # This function calculates the ending coordinates using a string in which f = forward, b = backward, l = left and r = right, considering a cartesian plot and starting in pos = 0,0
 
 def follow(instructions: str) -> tuple[int, int] | list[int]:
-    coords =["f","b","r","l"]
-    x = 0
-    y = 0
-    for n in instructions:
-        if n in coords and n == "f":
-            y += 1
-        elif n in coords and n == "b":
-            y += -1
-        elif n in coords and n == "r":
-            x += 1
-        elif n in coords and n == "l":
-            x += -1
-    return [x,y]
+    moves ={
+        'f' : (0,1),
+        'b' : (0,-1),
+        'r' : (1,0),
+        'l' : (-1,0)
+    }
+    x,y = 0,0
+    for coords in instructions:
+        if coords in moves:
+            dx,dy = moves[coords]
+            x += dx
+            y += dy
+
+    return x,y
+
+# This function returns the same input list but changing the first item to the last position
+
+def replace_first(items: list) -> Iterable:
+    if len(items) >= 2:
+        return items[1:] + items[:1]
+    return items
+        
+# This function detects whether all the elements of a list are equal
+
+def all_the_same(elements: list) -> bool:
+    if elements:
+        return elements.count(elements[0]) == len(elements)
+    else:
+        return True
+
+# THis function returns the same sentence but with the backwards words
+
+def backward_string_by_word(text:str) -> str:
+    return " ".join(word[::-1] for word in text.split(" "))
+    
+
+
+
+
+
+
+
+
+
 
     
 
