@@ -42,8 +42,30 @@ def median(data: list[int]) -> int | float:
     else:
         return data[mid]
     
+# This functions separates elements in a tuple / list and concatenates it in a new string. Specifically it also changes any right string into left
+
 def left_join(phrases: tuple[str, ...]) -> str:
     res = [x for item in phrases for x in ([item.replace("right","left")] if "right" in item else [item])]
     return ",".join(res)
+
+# This function calculates the ending coordinates using a string in which f = forward, b = backward, l = left and r = right, considering a cartesian plot and starting in pos = 0,0
+
+def follow(instructions: str) -> tuple[int, int] | list[int]:
+    coords =["f","b","r","l"]
+    x = 0
+    y = 0
+    for n in instructions:
+        if n in coords and n == "f":
+            y += 1
+        elif n in coords and n == "b":
+            y += -1
+        elif n in coords and n == "r":
+            x += 1
+        elif n in coords and n == "l":
+            x += -1
+    return [x,y]
+
+    
+
 
 
