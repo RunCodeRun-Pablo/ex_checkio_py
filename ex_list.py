@@ -102,11 +102,21 @@ def stock_profit(stock: list[int]) -> int:
     benefit = max(post_min_prices) - min(stock)
     return max(benefit,0)
 
+# This function eliminates consecutive duplicate elements
 
+def compress(items: list[int]) -> Iterable[int]:
+    new_items = []
+    l = len(items)
+    if l > 1:
+        for n in range(l-1):
+            if items[n] != items[n+1]:
+                new_items.append(items[n])
+        new_items.append(items[l-1])
+    elif l == 1:
+        return items
+        
+    return new_items
 
-    
-
-    
 
 
 
