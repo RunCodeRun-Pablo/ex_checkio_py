@@ -82,10 +82,30 @@ def all_the_same(elements: list) -> bool:
     else:
         return True
 
-# THis function returns the same sentence but with the backwards words
+# This function returns the same sentence but with the backwards words
 
 def backward_string_by_word(text:str) -> str:
     return " ".join(word[::-1] for word in text.split(" "))
+
+# This function returns the difference between a minimum and a maximum value. To consider: the substraction should only happens if the minimum value is before the maximum within the list index, else the function should return 0 
+
+def stock_profit(stock: list[int]) -> int:
+    if len(stock) < 2:
+        return 0
+    
+    min_value_idx = stock.index(min(stock))
+    post_min_prices = stock[min_value_idx+1:]
+
+    if not post_min_prices:
+        return 0
+    
+    benefit = max(post_min_prices) - min(stock)
+    return max(benefit,0)
+
+
+
+    
+
     
 
 
