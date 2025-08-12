@@ -117,6 +117,28 @@ def compress(items: list[int]) -> Iterable[int]:
         
     return new_items
 
+# I included this as an alternative answer (not mine) using a generator, which i found interesting, for obtaining the complete result you have to call the generator with a list
+
+def compress(items: list[int]) -> Iterable[int]:
+
+    for ind, val in enumerate(items):
+        if not ind or val != items[ind - 1]:
+            yield val
+
+# Example of function calling : list(compress([]))
+
+# This function given a list and an edge, we have to return a new list only with the elements within that edge, for example [1,2,3,4,5] and edge 3: should return [1,2,3]
+# If the edge is not found in the list it should return the same list
+
+def remove_all_after(items:list[int], border: int) -> Iterable[int]:
+    return items[:items.index(border)+1] if border in items else items
+
+    
+
+
+
+
+
 
 
 
