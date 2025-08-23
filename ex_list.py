@@ -133,6 +133,37 @@ def compress(items: list[int]) -> Iterable[int]:
 def remove_all_after(items:list[int], border: int) -> Iterable[int]:
     return items[:items.index(border)+1] if border in items else items
 
+
+# This function indicates with bools whether a list is composed of ordered increasing int items, if yes returns true, if not false.
+
+def is_ascending(items: list[int]) -> bool:
+    if not items:
+        return True
+    
+    l, index = len(items),0
+    for item in items:
+        if index < l-1 and item < items[index+1]:
+            index += 1
+    return index == l-1
+
+# Another version that could work also
+
+def is_ascending(items: list[int]) -> bool:
+    for i in range(len(items)-1):
+        if items[i] >= items[i+1]:
+            return False
+    return True
+
+
+
+
+    
+
+
+
+
+
+
     
 
 
