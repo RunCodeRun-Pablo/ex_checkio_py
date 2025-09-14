@@ -154,6 +154,32 @@ def is_ascending(items: list[int]) -> bool:
             return False
     return True
 
+# Given a str list and a str, you have to check if the str in the list appear in the same order as in the input str
+# This function should return a bool value, example: ['hello','world'], 'is hello a word of the world' -> True
+
+def words_order(text: str, words: list) -> bool:
+
+
+text = 'This is a string'
+words = ['is','string']
+text = text.split()
+ind = 0
+for word in words:
+    if word in text:
+        if text.index(word) >= ind:
+            ind = text.index(word)
+            continue
+        print(False)
+    print(True)
+
+            
+
+
+
+
+
+
+
 
 
 
