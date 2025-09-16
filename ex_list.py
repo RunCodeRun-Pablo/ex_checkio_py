@@ -161,8 +161,24 @@ def words_order(text: str, words: list) -> bool:
     results = {i for i in text.split() if i in words}
     return sorted(results, key=text.index) == words
 
+# This function gets a string as an input and outputs the number of empty lines it has (\n)
+
+def non_empty_lines(text: str) -> int:
+    punctuation = [" "
+    text = [line.replace(" ", "") for line in text.split("\n")]
+    text = [line for line in text if line.isalpha()]
+    return len(text)
 
 
+
+
+
+split = "\nLorem ipsum dolor sit amet,\n\nconsectetur adipiscing elit\nNam odio nisi, aliquam\n            "
+
+
+split = [line.replace(" ","") for line in split.split("\n")]
+split = [line for line in split if line.isalpha()]
+print(split)
 
 
 
