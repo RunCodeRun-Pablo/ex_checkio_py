@@ -164,8 +164,7 @@ def words_order(text: str, words: list) -> bool:
 # This function gets a string as an input and outputs the number of empty lines it has (\n)
 
 def non_empty_lines(text: str) -> int:
-    text = [line.replace(" ", "") for line in text.split("\n")]
-    text = [line for line in text if line]
+    text = [line for line in text.split("\n") if line.strip()]
     return len(text)
 
 
