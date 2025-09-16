@@ -158,19 +158,13 @@ def is_ascending(items: list[int]) -> bool:
 # This function should return a bool value, example: ['hello','world'], 'is hello a word of the world' -> True
 
 def words_order(text: str, words: list) -> bool:
+    results = {i for i in text.split() if i in words}
+    return sorted(results, key=text.index) == words
 
 
-text = 'This is a string'
-words = ['is','string']
-text = text.split()
-ind = 0
-for word in words:
-    if word in text:
-        if text.index(word) >= ind:
-            ind = text.index(word)
-            continue
-        print(False)
-    print(True)
+
+
+
 
             
 
