@@ -167,6 +167,16 @@ def non_empty_lines(text: str) -> int:
     text = [line for line in text.split("\n") if line.strip()]
     return len(text)
 
+# This function gets a list and a determined item as a input and outputs the items just after the index of the determined item:
+
+def remove_all_before(items:list, border: int) -> Iterable:
+    if items and border not in items:
+        return items    
+    elif items and border in items:
+        return items[items.index(border)::]
+    else: return [] 
+
+remove_all_before([1, 1, 5, 6, 7], 2)
 
 
 
