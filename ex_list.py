@@ -174,9 +174,19 @@ def remove_all_before(items:list, border: int) -> Iterable:
         return items    
     elif items and border in items:
         return items[items.index(border)::]
-    else: return [] 
+    else: return []
 
-remove_all_before([1, 1, 5, 6, 7], 2)
+# Given a list, this functions returns a new list with the items that are not unique in the original one
+
+def checkio(data: list[int]) -> Iterable[int]:
+    new_list = []
+    
+    for num in data:
+        if data.count(num) > 1:
+            new_list.append(num)
+    return new_list 
+
+
 
 
 
