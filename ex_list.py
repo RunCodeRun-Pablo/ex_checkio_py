@@ -186,12 +186,23 @@ def checkio(data: list[int]) -> Iterable[int]:
             new_list.append(num)
     return new_list 
 
+# This functions order the numbers within the list, except for zeros that remain in the same position
+
+def except_zero(items: list[int]) -> Iterable[int]:
+    zero_pos ={}
+    new_list = []
+    for pos,num in enumerate(items):
+        if num !=0:
+            new_list.append(num)
+        else:
+            zero_pos.update({pos:num})
+    new_list.sort()
+    for key,value in zero_pos.items():
+        new_list.insert(key,value)
+    return new_list
 
 
 
-
-
-            
 
 
 
